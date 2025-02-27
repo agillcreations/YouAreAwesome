@@ -14,18 +14,36 @@ struct ContentView: View {
     var body: some View {
         
         VStack {
+            
+            Spacer() // Takes up half of the available space.
+            
             Image(systemName: "swift")
                 .resizable()
                 .scaledToFit()
                 .foregroundStyle(.orange)
+                .frame(width: 200, height: 200)
+            
             Text(message)
                 .font(.largeTitle)
-                .fontWeight(.heavy)
-                .foregroundStyle(.red)
+                .fontWeight(.ultraLight)
+                .foregroundStyle(.black)
             
-            Button("Click Me!") {
-                message = "Awesome!"
-            }
+            Spacer()
+            
+            HStack {
+                Button("Awesome") {
+                    message = "Awesome!"
+                }
+
+                
+                Button("Great") {
+                    message = "Great!"
+                }
+            } // Modifiers apply to all the button in the HStack.
+            .buttonStyle(.borderedProminent)
+            .font(.title2)
+            .tint(.orange)
+            
         }
         .padding()
         
